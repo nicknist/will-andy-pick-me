@@ -5,6 +5,10 @@ var question = document.querySelector('#question');
 var randomAnswer = document.querySelector('#random-answer');
 var clear = document.querySelector('#clear');
 var text = document.querySelector('p');
+var favorite = document.querySelector('#favorite');
+var favoriteList = document.querySelector('#favorite-list');
+var questionAndAnswer = document.querySelector('#question-and-answer');
+var addHere = document.querySelector('#add-here');
 
 var answersArray = [
   "It is certain.",
@@ -32,6 +36,7 @@ var answersArray = [
 function resetPage() {
   clear.disabled = true;
   getAnswer.disabled = true;
+  favorite.disabled = true;
   askQuestion.value = "Ask your question here!";
 }
 
@@ -65,10 +70,21 @@ getAnswer.addEventListener('click', function() {
     changeQuestion();
     askQuestion.value = "";
     clear.disabled = false;
+    favorite.disabled = false;
 })
 
 clear.addEventListener('click', function() {
   eightBall.classList.remove('hide');
   text.classList.remove('show');
   resetPage();
+})
+
+function addItem() {
+  var li = document.createElement('LI');
+  li.innerHTML = questionAndAnswer.innerHTML;
+  addHere.appendChild(li);
+}
+
+favorite.addEventListener('click', function() {
+  favoriteList.classList.remove('hide');
 })

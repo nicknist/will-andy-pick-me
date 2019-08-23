@@ -15,13 +15,21 @@
           <input id="ask-question" type="text" name="Ask your question here!" value="Ask your question here!">
           <button id="get-answer" type="button" name="Get your answer">Get your answer</button>
           <img id="eight-ball" src="assets/eight-ball.png" alt="Picture of an Eight Ball">
-          <p><span id="question">"Question that was asked"</span><br /><span id="random-answer">Answer that 8 Ball Gives</span></p>
-          <button id="clear" type="button" name="Clear">Clear</button>
+          <p id="question-and-answer"><span id="question">"Question that was asked"</span><br /><span id="random-answer">Answer that 8 Ball Gives</span></p>
+          <div class="bottom-buttons">
+            <button id="favorite" type="button" name="Favorite" onclick="addItem()">Favorite</button>
+            <button id="clear" type="button" name="Clear">Clear</button>
+          </div>
         </section>
         <section>
           <img id="woody" src="assets/woody.png" alt="Picture of Woody from Toy Story">
         </section>
       </main>
+      <article id="favorite-list" class="favorite hide">
+          Your List of Favorite Responses:<br />
+          <ul id="add-here">
+          </ul>
+      </article>
   </body>
   <script type="text/javascript" src="index.js"></script>
 </html>
