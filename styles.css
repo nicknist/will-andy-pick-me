@@ -88,6 +88,14 @@ p {
   background-color: #D0CDCD;
 }
 
+.show {
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
+}
+
 /*
 COLORS
 H1, Get answer button, text in input field: #2B4E80;
