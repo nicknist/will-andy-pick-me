@@ -29,6 +29,12 @@ var answersArray = [
   "Very doubtful."
 ]
 
+function resetPage() {
+  clear.disabled = true;
+  getAnswer.disabled = true;
+  askQuestion.value = "Ask your question here!";
+}
+
 function getRandomAnswer() {
   var randomIndex = Math.floor(Math.random() * 20);
   eightBall.classList.add('hide');
@@ -40,12 +46,29 @@ function changeQuestion() {
   question.innerText = askQuestion.value
 }
 
+resetPage();
+
 askQuestion.addEventListener('click', function() {
   askQuestion.value = "";
 })
 
+askQuestion.addEventListener('change', function() {
+  if (askQuestion.value == "" || askQuestion.value == "Ask your question here!") {
+    getAnswer.disabled = true;
+  } else {
+    getAnswer.disabled = false;
+  }
+})
+
 getAnswer.addEventListener('click', function() {
-  getRandomAnswer();
-  changeQuestion();
-  askQuestion.value = "";
+    getRandomAnswer();
+    changeQuestion();
+    askQuestion.value = "";
+    clear.disabled = false;
+})
+
+clear.addEventListener('click', function() {
+  eightBall.classList.remove('hide');
+  text.classList.remove('show');
+  resetPage();
 })
